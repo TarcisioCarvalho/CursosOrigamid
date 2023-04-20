@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redux</title>
+    <script src="redux.min.js"></script>
+</head>
+<body>
+    <script>
+        const initialState = 10;
+        function reducer(state = initialState,action){
+            if(action.type === "Somar"){
+                return state + action.payload;
+            }
+                return state;
+            
+           
+        }
+
+        const store = Redux.createStore(reducer);
+        console.log(store.getState());
+        store.dispatch({type:"Somar",payload:65});
+        console.log(store.getState());
+    </script>
+</body>
+</html>
