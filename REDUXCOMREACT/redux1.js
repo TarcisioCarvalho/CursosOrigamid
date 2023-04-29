@@ -42,8 +42,9 @@
           total.innerText = contador;
           modal?total.style.display="block":total.style.display="none";
         }
-        store.subscribe(Render);
+        const unsubscribe =  store.subscribe(Render);
         Render();
+        store.dispatch(somar(20));
         const button = document.getElementById("incrementar");
         button.addEventListener("click",() => store.dispatch(incrementar()))
         const abrir = document.getElementById("abrir");
