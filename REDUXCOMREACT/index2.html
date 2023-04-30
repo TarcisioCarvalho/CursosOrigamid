@@ -1,4 +1,20 @@
-        const SOMAR = "Somar";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redux</title>
+    <script src="redux.min.js"></script>
+</head>
+<body>
+    <h1>Total: <span id="total"></span></h1>
+    <button id="incrementar">Incrementar</button>
+    <button id="abrir">Abrir</button>
+    <button id="fechar">Fechar</button>
+    <script src="calc1.js"></script>
+    <script>
+        /* const SOMAR = "Somar";
         const INCREMENTAR = "Incrementar";
         const ABRIR = "Abrir";
         const FECHAR = "Fechar";
@@ -18,13 +34,18 @@
         };
 
         function modal(state = true,action){
+          console.log("Teste");
+          console.log(action.type);
           switch (action.type) {
             case ABRIR:
               return true
+              break;
             case FECHAR:
               return false;
+              break;
             default:
               return state;
+              break;
           }
         }
         const reducer = Redux.combineReducers({contador,modal});
@@ -32,16 +53,19 @@
 
         function Render(){
           const {contador,modal} = store.getState();
+          console.log(modal);
           const total = document.getElementById("total");
           total.innerText = contador;
           modal?total.style.display="block":total.style.display="none";
         }
-        const unsubscribe =  store.subscribe(Render);
+        store.subscribe(Render);
         Render();
-        store.dispatch(somar(20));
         const button = document.getElementById("incrementar");
         button.addEventListener("click",() => store.dispatch(incrementar()))
         const abrir = document.getElementById("abrir");
         const fechar = document.getElementById("fechar");
         abrir.addEventListener("click",()=>store.dispatch({type:ABRIR}))
-        fechar.addEventListener("click",()=>store.dispatch({type:FECHAR})) 
+        fechar.addEventListener("click",()=>store.dispatch({type:FECHAR})) */
+    </script>
+</body>
+</html>
