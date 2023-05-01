@@ -6,12 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redux</title>
     <script src="redux.min.js"></script>
+    <script src="./immer.umd.production.min.js"></script>
+    
 </head>
 <body>
-    <div id="caixa" style="background-color: blue; height: 50px; width: 10px;"></div>
-    <script src="redux2.js"></script>
-    <script>
+    <div id="nome"></div>
+    <div id="email"></div>
+    <div id="tempo-restante"></div>
+    <div id="aulas"> </div>
+    
 
-    </script>
+
+    <script type="module">
+        import { incrementarTempo, reduzirTempo,modificarEmail } from './store/aluno.js';
+        import { completarAula, completarCurso, resetarCurso } from './store/aulas.js';
+        import store from './store/configureStore.js';
+      
+        function render(){
+            const nome = document.getElementById("nome");
+            nome.innerText="Nome: " + store.getState().aluno.nome;
+            const email = document.getElementById("email");
+            email.innerText="Email: " + store.getState().aluno.email;
+            const tempoRestante = document.getElementById("tempo-restante");
+            tempoRestante.innerText="Tempo Restante: " + store.getState().aluno.diasRestantes + " Dias";
+            const aulas = document.getElementById("aulas");
+            aulas.innerText="Total de Aulas Completas: " + store.getState().aulas.filter(aula => aula.completa === true).length + " Completas";
+        }
+        render();
+
+        store.subscribe(render);
+
+        store.dispatch(resetarCurso());
+        store.dispatch(resetarCurso());
+        store.dispatch(completarAula(2));
+        store.dispatch(completarAula(4));
+        console.log(store.getState().aulas);
+      </script>
 </body>
 </html>
