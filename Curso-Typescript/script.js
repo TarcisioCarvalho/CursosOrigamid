@@ -1,4 +1,4 @@
-var A = Abcd("teste");
-function Abcd(Parametro) {
-    return Parametro.toLocaleUpperCase();
+function normalizarTexto(texto) {
+    return texto.trim().toLowerCase();
 }
+console.log(normalizarTexto(" DEsign "));
