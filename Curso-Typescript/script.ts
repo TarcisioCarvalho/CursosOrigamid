@@ -1,5 +1,11 @@
-function normalizarTexto(texto:string){
-    return texto.trim().toLowerCase();
+const input = document.querySelector("input");
+
+function totalMudou(){
+    const value = Number(input?.value);
+    const p = document.querySelector("p");
+
+    p?.innerText = `Ganho tot: ${value + 100 - value * 0.2}`;
 }
 
-console.log(normalizarTexto(" DEsign "));
+
+input?.addEventListener("keyup",totalMudou);
