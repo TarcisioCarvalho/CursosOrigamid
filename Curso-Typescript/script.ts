@@ -1,10 +1,22 @@
 const input = document.querySelector("input");
 
-function totalMudou(){
-    const value = Number(input?.value);
-    const p = document.querySelector("p");
+const total = localStorage.getItem("total");
+if(input && total){
+    input.value = total;
+    calcularGanho(Number(input.value));
+}
 
-    p?.innerText = `Ganho tot: ${value + 100 - value * 0.2}`;
+function calcularGanho(value:number){
+
+    const p = document.querySelector("p");
+    if(p) p.innerText = `Ganhou tot: ${value + 100 - value * 0.2}`;
+}
+function totalMudou(){
+    if(input){
+        const value = Number(input.value); 
+        localStorage.setItem("total",String(value));
+        calcularGanho(value);
+    }
 }
 
 
