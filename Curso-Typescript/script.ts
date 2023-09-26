@@ -1,4 +1,4 @@
-const input = document.querySelector("input");
+/* const input = document.querySelector("input");
 
 const total = localStorage.getItem("total");
 if(input && total){
@@ -20,4 +20,12 @@ function totalMudou(){
 }
 
 
-input?.addEventListener("keyup",totalMudou);
+input?.addEventListener("keyup",totalMudou); */
+
+function toNumber(value : string | number){
+    if(typeof value === "number") return value;
+
+    if(typeof value === "string") return Number(value);
+
+    throw "value deve ser number ou string";
+}
